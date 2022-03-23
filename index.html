@@ -9,15 +9,15 @@
 </head>
 <body>
     <header>
-        <div class="timer">
-            <div class="timerText">Time remaining:</div>
-            <div class="timerText">x seconds</div>
+        <div class="countdown">
+            <div class="timerText">Time remaining: <span id="counter"></span>
+            </div>
         </div>
 
         <div class="HighScore"></div>
     </header>
     <!--start quiz slide-->
-    <div class="start-slide">
+    <div id= "introSlide" class="start-slide">
         <h2>Welcome to the Coding Quiz Challenge</h2>
         <div class="rule-list">
             <h3>The Rules:</h3>
@@ -32,16 +32,18 @@
     </div>
 
     <!--multiple choice answer section-->
-    <section>
-        <h1 id="question"></h1>
-        <button class="answer-1"></button>
-        <button class="answer-2"></button>
-        <button class="answer-3"></button>
-        <button class="answer-4"></button>
+    <section id=quizContent class="invisible">
+        <h1 id="question">Question</h1>
+        <div id="answers">
+        <button id="answer-1">Answer</button>
+        <button id="answer-2">answer</button>
+        <button id="answer-3">answer</button>
+        <button id="answer-4">answer</button>
+        </div>
 
     </section>
 
     <!--high score screen-->
-    <script src="script.js"></script>
+    <script src="./develop/script.js"></script>
 </body>
 </html>

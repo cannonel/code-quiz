@@ -15,7 +15,7 @@
 }
 
 .rule-list{
-    
+
 }
 
 .start-btn{
@@ -24,6 +24,10 @@
     padding: 5px;
     margin:10px;
     border-radius: 7px;
+}
+
+.invisible {
+    display: none;
 }
 
 .multiple-choice {
