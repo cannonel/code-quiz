@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Quiz</title>
+    <link rel="stylesheet" href="./develop/style.css"/>
+</head>
+<body>
+    <header>
+        <div class="timer">
+            <div class="timerText">Time remaining:</div>
+            <div class="timerText">x seconds</div>
+        </div>
+
+        <div class="HighScore"></div>
+    </header>
+    <!--start quiz slide-->
+    <div class="start-slide">
+        <h2>Welcome to the Coding Quiz Challenge</h2>
+        <div class="rule-list">
+            <h3>The Rules:</h3>
+            <ol>
+                <li>Choose one answer per question.</li>
+                <li>You have 60 seconds to answer the questions.</li>
+                <li>Incorrect answers will deduct 10 seconds from your quiz time.</li>
+                <li>Upon completion, your remaining quiz time will be recorded as your score.</li>
+            </ol>
+            <button id= "startButton" class="start-btn">Start Quiz</button>
+        </div>
+    </div>
+
+    <!--multiple choice answer section-->
+    <section>
+        <h1 id="question"></h1>
+        <button class="answer-1"></button>
+        <button class="answer-2"></button>
+        <button class="answer-3"></button>
+        <button class="answer-4"></button>
+
+    </section>
+
+    <!--high score screen-->
+    <script src="script.js"></script>
+</body>
+</html>
