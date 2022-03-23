@@ -23,7 +23,7 @@ correct: "correct answer"}
 
 var questionLog = 0;
 var playerScore = 0;
-var timer, counter = 0;
+var timer, counter = 60;
 
 //show multiple choice function
 function showQuestion() {
@@ -39,7 +39,7 @@ function countdown() {
    document.getElementById("counter").innerHTML = (counter);
     timer = setInterval(function() {
         counter--;
-        getElementById("counter").text(counter);
+       document.getElementById("counter").innerHTML = counter;
         if (counter === 0) {
             clearInterval(timer);
             endGame();
@@ -59,7 +59,8 @@ function startGame() {
 
 //start end game function-- presents form to enter intitials 
 function endGame() {
-
+    
 }
 
 document.getElementById("startButton").addEventListener("click", startGame);
+document.getElementById("startButton").addEventListener("click", countdown);
