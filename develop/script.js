@@ -57,10 +57,29 @@ function startGame() {
 
 }
 
+
 //start end game function-- presents form to enter intitials 
 function endGame() {
-    
-}
 
+}
+//click events to submit answers/change questions
+document.getElementById("answers").addEventListener("click", ".answer", function() {
+if(this.innerHTML === questions[questionLog].correct) {
+    //show correct on display
+
+}else {
+    //show result incorrect
+    counter = (counter - 10);
+}
+questionLog++;
+if (questionLog === questions.length){
+    endGame();
+}else{
+    showQuestion();
+}
+});
+
+
+//click events to start game
 document.getElementById("startButton").addEventListener("click", startGame);
 document.getElementById("startButton").addEventListener("click", countdown);
