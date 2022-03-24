@@ -63,11 +63,14 @@ function endGame() {
 
 }
 //click events to submit answers/change questions
-document.getElementById("answers").addEventListener("click", ".answer", function() {
-if(this.innerHTML === questions[questionLog].correct) {
+document.getElementById("answer-1").addEventListener("click", function() {
+if(this.textContent === questions[questionLog].correct) {
+    console.log("Correct!!");
     //show correct on display
 
 }else {
+    console.log("incorrect:(")
+    
     //show result incorrect
     counter = (counter - 10);
 }
@@ -78,6 +81,63 @@ if (questionLog === questions.length){
     showQuestion();
 }
 });
+
+document.getElementById("answer-2").addEventListener("click", function() {
+    if(this.textContent === questions[questionLog].correct) {
+        console.log("Correct!!");
+        //show correct on display
+    
+    }else {
+        console.log("incorrect:(")
+        
+        //show result incorrect
+        counter = (counter - 10);
+    }
+    questionLog++;
+    if (questionLog === questions.length){
+        endGame();
+    }else{
+        showQuestion();
+    }
+    });
+
+    document.getElementById("answer-3").addEventListener("click",function() {
+        if(this.textContent === questions[questionLog].correct) {
+            console.log("Correct!!");
+            //show correct on display
+        
+        }else {
+            console.log("incorrect:(")
+            
+            //show result incorrect
+            counter = (counter - 10);
+        }
+        questionLog++;
+        if (questionLog === questions.length){
+            endGame();
+        }else{
+            showQuestion();
+        }
+        });
+
+        document.getElementById("answer-4").addEventListener("click", function() {
+            if(this.textContent === questions[questionLog].correct) {
+                console.log("Correct!!");
+                //show correct on display
+            
+            }else {
+                console.log("incorrect:(")
+                
+                //show result incorrect
+                counter = (counter - 10);
+            }
+            questionLog++;
+            if (questionLog === questions.length){
+                endGame();
+            }else{
+                showQuestion();
+            }
+            });
 
 
 //click events to start game
