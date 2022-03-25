@@ -1,29 +1,33 @@
 //questions
 var questions = [
-{question: "question one",
-answers:["answer one", "answer two", "answer three","answer four"],
-correct: "correct answer"},
+{question: "What is the use of Javascript?",
+answers:["To make a webpage interactive", "To add styling on your page", "To add text content","Make your page boring"],
+correct: "To make a webpage interactive"},
 
-{question: "question two",
-answers:["answer one", "answer two", "answer three","answer four"],
-correct: "correct answer"},
+{question: "What does 'Var' mean in Javascript?",
+answers:["Varigation", "Variable", "Variant","Varsity"],
+correct: "Variable"},
 
-{question: "question three",
-answers:["answer one", "answer two", "answer three","answer four"],
-correct: "correct answer"},
+{question: "Which of these is NOT a interactive function?",
+answers:["alert", "prompt", "confirm","push"],
+correct: "push"},
 
-{question: "question four",
-answers:["answer one", "answer two", "answer three","answer four"],
-correct: "correct answer"},
+{question: "What year was JavaScript invented?",
+answers:["2001", "1999", "2003","1995"],
+correct: "1995"},
 
-{question: "question five",
-answers:["answer one", "answer two", "answer three","answer four"],
-correct: "correct answer"}
+{question: "Which of these are NOT a JS library?",
+answers:["jQuery", "Angular", "Bootstrap","React"],
+correct: "Bootstrap"}
 ]
 
 var questionLog = 0;
 var playerScore = 0;
 var timer, counter = 60;
+var player = {};
+var playerName = "";
+var gameResult = {};
+var highscoreList = [];
 
 //show multiple choice function
 function showQuestion() {
@@ -47,21 +51,54 @@ function countdown() {
     }, 1000);
 }
 
+//start End game function-- presents form to enter intitials 
+function endGame() {
+    var quizScreen = document.getElementById("quizContent");
+    var quizInstructions = document.getElementById("introSlide");
+    var timeLeft = document.getElementById("timerText");
+
+    playerScore = counter;
+    document.getElementsByClassName("countdown")
+    quizInstructions.classList.add("invisible");
+    quizScreen.classList.add("invisible");
+    document.getElementById("results").innerHTML = ("You scored: " + playerScore + "!!!!");
+    timeLeft.classList.add("invisible");
+
+    var playerNameEnter = window.prompt("Want to save your score? Enter initials here!");
+    if (!playerNameEnter){
+        window.alert("Play again!");
+        window.location.reload();
+    } else {
+        window.alert("Your score is saved! Woooooooo")
+        highScore=playerScore;
+        playerName=playerNameEnter;
+    }
+
+//highscore function here
+
+
+
+
+
+
+
+
+};
+
+
 //start game function
 function startGame() {
     var quizSlide= document.getElementById("quizContent");
-    var quizIntructions = document.getElementById("introSlide");
+    var quizInstructions = document.getElementById("introSlide");
+    var quizTimer = document.getElementById("timerText");
+    quizSlide.classList.add("introSlide")
     quizSlide.classList.remove("invisible");
-    quizIntructions.classList.add("invisible");
+    quizInstructions.classList.add("invisible");
+    quizTimer.classList.remove("invisible");
     showQuestion();
 
-}
+};
 
-
-//start end game function-- presents form to enter intitials 
-function endGame() {
-
-}
 //click events to submit answers/change questions
 document.getElementById("answer-1").addEventListener("click", function() {
 if(this.textContent === questions[questionLog].correct) {
@@ -124,10 +161,8 @@ document.getElementById("answer-2").addEventListener("click", function() {
             if(this.textContent === questions[questionLog].correct) {
                 console.log("Correct!!");
                 //show correct on display
-            
             }else {
                 console.log("incorrect:(")
-                
                 //show result incorrect
                 counter = (counter - 10);
             }
@@ -138,6 +173,8 @@ document.getElementById("answer-2").addEventListener("click", function() {
                 showQuestion();
             }
             });
+
+            
 
 
 //click events to start game
