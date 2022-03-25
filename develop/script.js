@@ -72,18 +72,25 @@ function endGame() {
         window.alert("Your score is saved! Woooooooo")
         highScore=playerScore;
         playerName=playerNameEnter;
+    
+
+
+    toHighscoreList();
+    document.getElementById("results").innerHTML = ("Ze highest of the scores:\n" + playerName + " " + playerScore);
+    console.log(gameResult.player);
+    console.log(gameResult.score);
     }
 
-//highscore function here
+ }
 
+//to do--store initials and scores to local storage
 
-
-
-
-
-
-
+ //highscore function here
+function toHighscoreList() {
+  gameResult = {player: playerName, score: playerScore};
+  player = gameResult;
 };
+
 
 
 //start game function
