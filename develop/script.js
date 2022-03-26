@@ -84,6 +84,8 @@ function endGame() {
  }
 
 //to do--store initials and scores to local storage
+//var highScores []
+
 
  //highscore function here
 function toHighscoreList() {
@@ -104,7 +106,7 @@ function startGame() {
     quizTimer.classList.remove("invisible");
     showQuestion();
 
-};
+}
 
 //click events to submit answers/change questions
 document.getElementById("answer-1").addEventListener("click", function() {
