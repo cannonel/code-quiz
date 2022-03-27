@@ -28,6 +28,7 @@ var player = {};
 var playerName = "";
 var gameResult = {};
 var highscoreList = [];
+var answeredAll = 0;
 
 //show multiple choice function
 function showQuestion() {
@@ -44,7 +45,7 @@ function countdown() {
     timer = setInterval(function() {
         counter--;
        document.getElementById("counter").innerHTML = counter;
-        if (counter === 0) {
+        if (counter === 0 && answeredAll === 0) {
             clearInterval(timer);
             endGame();
         }
@@ -57,6 +58,7 @@ function endGame() {
     var quizInstructions = document.getElementById("introSlide");
     var timeLeft = document.getElementById("timerText");
 
+    answeredAll = 1;
     playerScore = counter;
     document.getElementsByClassName("countdown")
     quizInstructions.classList.add("invisible");
@@ -80,6 +82,8 @@ function endGame() {
     console.log(gameResult.player);
     console.log(gameResult.score);
     }
+
+    document.getElementById("highScoreButton").classList.remove("invisible");
 
  }
 
@@ -111,13 +115,14 @@ function startGame() {
 //click events to submit answers/change questions
 document.getElementById("answer-1").addEventListener("click", function() {
 if(this.textContent === questions[questionLog].correct) {
-    console.log("Correct!!");
     //show correct on display
+    document.getElementById("results").innerHTML = "Correct!!"
 
 }else {
-    console.log("incorrect:(")
-    
     //show result incorrect
+    document.getElementById("results").innerHTML = "Incorrect :'("
+
+    //if incorrect, deduct ten points
     counter = (counter - 10);
 }
 questionLog++;
@@ -130,13 +135,11 @@ if (questionLog === questions.length){
 
 document.getElementById("answer-2").addEventListener("click", function() {
     if(this.textContent === questions[questionLog].correct) {
-        console.log("Correct!!");
-        //show correct on display
+        document.getElementById("results").innerHTML = "Correct!!"
     
     }else {
-        console.log("incorrect:(")
-        
-        //show result incorrect
+        document.getElementById("results").innerHTML = "Incorrect :'("
+
         counter = (counter - 10);
     }
     questionLog++;
@@ -149,13 +152,11 @@ document.getElementById("answer-2").addEventListener("click", function() {
 
     document.getElementById("answer-3").addEventListener("click",function() {
         if(this.textContent === questions[questionLog].correct) {
-            console.log("Correct!!");
-            //show correct on display
+            document.getElementById("results").innerHTML = "Correct!!"
         
         }else {
-            console.log("incorrect:(")
-            
-            //show result incorrect
+            document.getElementById("results").innerHTML = "Incorrect :'("
+
             counter = (counter - 10);
         }
         questionLog++;
@@ -168,11 +169,11 @@ document.getElementById("answer-2").addEventListener("click", function() {
 
         document.getElementById("answer-4").addEventListener("click", function() {
             if(this.textContent === questions[questionLog].correct) {
-                console.log("Correct!!");
-                //show correct on display
+                document.getElementById("results").innerHTML = "Correct!!"
+
             }else {
-                console.log("incorrect:(")
-                //show result incorrect
+                document.getElementById("results").innerHTML = "Incorrect :'("
+
                 counter = (counter - 10);
             }
             questionLog++;
